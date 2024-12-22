@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" class="h-100 w-100" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Clay Ganesha</title>
+<link rel="preload" href="css/style.min.css" as="style">
+<!-- <link rel="preload" href="js/script.min.js" as="script"> -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content>
+<meta name="keywords" content>
+
+<link href="css/style.min.css" rel="stylesheet">
+
+
+</head>
+<body id="page-top" class="h-100 overflow-x-hidden w-100">
+
+<header class="fixed-top">
+<nav class="navbar navbar-expand-lg p-0">
+<div class="container">
+
+
+<button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div id="navbar" class="collapse navbar-collapse justify-content-lg-center">
+<ul class="navbar-nav pt-3 pt-lg-0">
+<li class="nav-item me-3">
+<a class="nav-link page-scroll" href="#home">Home</a>
+</li>
+<li class="nav-item me-3">
+<a class="nav-link page-scroll" href="#locations">Locations</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link page-scroll" href="#contact">Order Now</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link page-scroll" th:href="@{/login}">Admin Login</a>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+</header>
+
+
+<span class="spacer d-block w-100"></span>
+
+<section id="home" class="bg-secondary-2">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-6 mb-5 mb-lg-0 position-relative text-center z-2">
+<div class="border border-2 border-primary d-inline-block mb-4 px-4 py-2">
+<h2 class="font-alt fs-1 m-0 text-primary">Welcome to Clay Ganesha</h2>
+</div>
+
+<h5 class="fs-3 mb-5">Order a Clay Ganesha for Ganesh Chatruthi to be handed out the week before the festival.</h5>
+
+
+<h5 class="fs-3 mb-3"> 
+    Eco-Friendly: Show your devotion to Ganesha and to the environment!</h5>
+
+<form th:action="@{/trackOrder}" th:object="${trackOrder}" method="post" class="bg-white p-4 position-relative">
+<div class="text-center align-items-center mt-4 ">
+        <h2 class="font-alt fs-3 m-0 text-dark mb-2">Track Order</h2>
+        <input type="text" class="p-2 w-50 mb-2" placeholder="Track ID" th:field="*{orderId}" required="required">
+        <button type="submit" class="btn btn-success mx-auto"><span>Track</span></button>
+    </div>
+    </form>
+</div>
+<div class="col-lg-6 order-lg-first position-relative">
+<div class="row justify-content-center justify-content-lg-start">
+<div class="col-12 col-sm-10 col-md-8 col-lg-9">
+<div class="position-relative z-2">
+<svg width="100%" height="100%" viewBox="0 0 500 685" xmlns="http://www.w3.org/2000/svg" class="position-relative z-2">
+<defs>
+<clipPath id="clip-path-hero" clipPathUnits="userSpaceOnUse">
+<path d="M165.836,1644.64C94.328,1209.04 90.753,779.697 165.349,357.564C180.459,272.058 246.591,204.825 331.662,187.446C599.258,132.777 869.097,133.687 1141.07,187.523C1228.32,204.794 1295.77,274.608 1309.15,362.538C1375.85,800.802 1379.67,1230.03 1311.42,1648.91C1297.09,1736.89 1228.64,1806.34 1140.92,1822.2C881.395,1869.15 613.861,1865.59 339.554,1819.32C250.208,1804.25 180.513,1734.05 165.836,1644.64Z" transform="matrix(0.399961,0,0,0.399961,-44.3128,-58.0804)" />
+</clipPath>
+</defs>
+<foreignObject clip-path="url(#clip-path-hero)" width="100%" height="100%">
+<img src="img/clay_idol.jpg" alt="The Couple" class="anim-zoom">
+</foreignObject>
+</svg>
+
+<img src="img/shape-particle.svg" alt class="shape-particle end-0 position-absolute top-0 z-3">
+<img src="img/shape-rect-the-couple-1.svg" alt class="shape-rect shape-rect-lg bottom-0 end-0 position-absolute z-1">
+</div>
+
+</div>
+
+</div>
+
+
+<img src="img/shape-rect-the-couple-3.svg" alt class="shape-rect d-md-none d-lg-block position-absolute start-0 top-0 z-1">
+</div>
+
+</div>
+
+</div>
+
+
+<img src="img/shape-wave-top-right.svg" alt class="shape-wave d-none d-lg-block end-0 position-absolute top-0 z-1">
+<img src="img/shape-wave-bottom-right-1.svg" alt class="shape-wave shape-wave-xl bottom-0 d-none d-lg-block end-0 position-absolute z-1">
+</section>
+
+
+<section id="locations" class="bg-secondary-2">
+	<div class="container position-relative z-2">
+		<div class="row">
+			<div class="col-12 position-relative text-center z-2">
+				<h2 class="font-alt fs-1 mb-3">Locations</h2>
+			</div>
+		</div>
+	
+		<div class="row gx-lg-5 justify-content-center">
+			<div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 mb-5 mb-xl-0" th:each="location : ${locations}">
+				<div class="position-relative">
+					<div class="d-flex flex-column justify-content-between position-absolute start-0 text-center top-0 w-100">
+						<div class="mt-5 px-4">
+							<h3 class="font-alt" th:text="${location.name}"></h3>
+							<p class="mb-sm-4 text-body-secondary" th:text="${location.address}"></p>
+							<p class="mb-sm-4 text-body-secondary">Timings : <span th:text="${location.contactPersonTimings}"></span></p>
+							<p class="mb-sm-4 text-body-secondary">Contact : <span th:text="${location.contactPersonName}"></span></p>
+							<p class="mb-sm-4 text-body-secondary" th:text="${location.contactPersonNo}"></p>
+							<span class="divider divider-floral d-none d-sm-block"></span>
+						</div>
+					</div>
+					
+					<img src="img/shape-rect-wedding-event-1.svg" alt class="img-fluid">
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	
+	
+	<img src="img/shape-rect-middle-left.svg" alt class="shape-events shape-rect shape-rect-lg d-none d-lg-block position-absolute start-0 top-50 translate-middle z-1">
+	<img src="img/shape-wave-bottom-right-3.svg" alt class="shape-wave shape-wave-lg bottom-0 d-none d-lg-block end-0 position-absolute z-1">
+</section>
+
+
+<section id="contact">
+<div class="container">
+
+<div class="row align-items-center gx-lg-5 justify-content-center">
+<div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mb-5">
+<div class="border bg-white pb-5 position-relative z-2">
+<h3 class="border-bottom bg-primary font-alt m-0 p-4 text-center text-white">Order Now</h3>
+	<form th:action="@{/createOrder}" th:object="${order}" method="post" class="bg-white p-4 position-relative" id="formCreateOrder">
+		<div class="row">
+		<div class="col-12 mb-3 position-relative">
+		<input type="text" th:field="*{name}" class="border-0 border-bottom p-3 w-100" placeholder="Full Name" required="required">
+		</div>
+		
+		<div class="col-12 mb-3 position-relative">
+		<input type="email" th:field="*{email}" class="border-0 border-bottom p-3 w-100" placeholder="Email Address" required="required">
+		</div>
+		
+		<div class="col-12 mb-3 position-relative">
+		    <input type="text" th:field="*{number}" class="border-0 border-bottom p-3 w-100" placeholder="Contact No" required="required">
+		    </div>
+		
+		<div class="col-12 mb-3 position-relative">
+			<select th:field="*{orderQuantity}" id="orderQuantity" class="border-0 border-bottom p-3 w-100" required="required">
+				<option value="">No of Moorthis</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+			</select>
+		</div>
+		
+		<div class="col-12 mb-3 position-relative">
+		<div class="row">
+		<div class="col-md-1" style="margin-top: 18px;margin-right: -25px;">
+		<span>$</span>
+		</div>
+		<div class="col-md-11">
+		<input type="text" th:field="*{orderAmount}" id="orderAmount" class="border-0 border-bottom p-3 w-100" placeholder="Amount" readonly="readonly">
+		</div></div></div>
+		
+		
+		<div class="col-12 mb-4 position-relative">
+		    <select th:field="*{orderPickupLocation}" class="border-0 border-bottom p-3 w-100" required="required">
+		        <option value="">Select Pickup Location</option>
+		         <option th:value="${location.id}" th:text="${#strings.capitalize(location.name)}" th:each="location : ${locations}"></option>
+		    </select>
+		</div>
+		
+		<div class="col-12 mb-4 position-relative">
+		    <textarea th:field="*{comments}" class="border-0 border-bottom p-3 w-100" placeholder="Comments"></textarea>
+		</div>
+		
+		<!-- <div class="col-12">
+		    <div class="row">
+				<div class="col-md-6">
+					<button type="submit" class="btn mx-auto"><span>Pay Now</span></button>
+				</div>
+				<div class="col-md-6">
+					<button type="submit" class="btn mx-auto"><span>Pay Later</span></button>
+				</div>
+			</div>
+		</div> -->
+		
+		<div class="col-12 mb-4 position-relative">
+		    <button type="submit" class="btn mx-auto">
+		    <span>Place Order</span>
+		    </button>
+		</div>
+		
+		</div>
+		
+		
+		<img src="img/trishul2.png" alt class="shape-heart-balloon bottom-0 d-none d-sm-block position-absolute start-0 z-2">
+		<img src="img/trishul.png" alt class="shape-heart-balloon bottom-0 d-none d-sm-block end-0 position-absolute translate-middle-y z-2">
+	</form>
+	
+</div>
+
+</div>
+
+<div class="col-sm-10 col-md-8 col-lg-6 col-xl-4 mb-lg-5 offset-xl-1 text-center">
+<h3 class="font-alt">Order Now</h3>
+<p class="mb-4 text-body-secondary">Collect Ganesh moorthis at your choosen pickup location.</p>
+<h5><b>1 Moorthi costs $<span th:text="${costPerUnit}"></span></b></h5>
+<span class="divider divider-floral"></span>
+</div>
+
+</div>
+
+</div>
+
+
+<img src="img/shape-wave-top-left-2.svg" alt class="shape-wave d-none d-lg-block position-absolute start-0 top-0 z-1">
+<img src="img/shape-wave-middle-right.svg" alt class="shape-wave shape-wave-xs d-none d-lg-block end-0 mb-5 position-absolute top-50 translate-middle-y z-1">
+</section>
+
+
+<footer class="bg-secondary-2 pb-0 section">
+	<div class="container">
+		<div class="row align-items-center gx-md-5 justify-content-center">
+			<div class="col-md-12 col-xl-6 mb-5 position-relative text-center text-md-start z-2">
+				<h2 class="font-alt fs-1 mb-3">100% Natural</h2>
+				<p class="fs-5 m-0 text-body-secondary">Our Ganesh Idols are made of natural clay (shadu), red soil (mitti) & paper mache</p>
+			</div>
+			
+			<div class="col-10 col-md-6 col-xl-4">
+				<div class="position-relative">
+					<img src="images/the-couple-rsvp.jpg" alt class="bottom-0 img-fluid position-absolute px-3 start-50 translate-middle-x z-1">
+					<img src="img/instagram.png" alt class="img-fluid position-relative z-2">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<img src="img/shape-wave-top-left-1.svg" alt class="shape-wave shape-wave-sm d-none d-lg-block mt-5 position-absolute start-0 top-0 z-1" >
+	<img src="img/shape-wave-bottom-right-2.svg" alt class="shape-wave-sm bottom-0 d-none d-lg-block end-0 position-absolute z-3">
+</footer>
+
+
+ <script src="js/script.min.js"></script>
+ <script src="assets/js/jquery.min.js"></script>
+ 
+ <script type="text/javascript">
+  	$(document).ready(function () {
+  		
+  	  var costPerUnit = "[[${costPerUnit}]]";
+  		
+	  $("#orderQuantity").change(function(){
+		  
+		  var selectedQuantity = this.value;
+		  var totalCost = selectedQuantity * costPerUnit;
+		  $("#orderAmount").val(totalCost);
+		  
+	  });
+	  
+	});
+    </script>
+    
+</body>
+</html>
